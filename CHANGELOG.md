@@ -1,5 +1,5 @@
 # Changelog
 
-## 1.0.0 (2015-11-11)
+## 0.1.0 (2015-11-28)
 
-* Initial commit
+* Initial release
