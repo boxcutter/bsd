@@ -1,0 +1,9 @@
+System hostname = openbsd57
+Password for root = vagrant
+Setup a user = vagrant
+Password for user = vagrant
+Allow root ssh login? (yes, no, prohibit-password) = no
+What timezone are you in = UTC
+Location of sets = cd
+Set name(s) = -game*.tgz -x*.tgz
+Directory does not contain SHA256.sig. Continue without verification = yes
