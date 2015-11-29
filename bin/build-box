@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+set -o errexit -o nounset -o pipefail
+
+if [ "${DEBUG:=false}" = "true" ]; then
+  set -o xtrace
+fi
+
+usage() {
+  echo "usage: $(basename $0) VAR_LIST_FILE BASE_TEMPLATE [vmware|virtualbox|parallels]"
+  echo
+  echo "Build a box"
+}
+
+args() {
+  if [ $# -lt 2 ]; then
+    usage
+    exit 0
+  fi
+
+  var_file=$1
+  if [ ! -f ${var_file} ]; then
+    var_file="${var_file}.json"
+    if [ ! -f ${var_file} ]; then
+      echo "$(basename $0): Invalid template file ${var_file}"
+      exit 127
+    fi
+  fi
+  packer_template=${2:-freebsd.json}
+  if [ ! -f ${packer_template} ]; then
+    packer_template="${packer_template}.json"
+    if [ ! -f ${packer_template} ]; then
+      echo "$(basename $0): Invalid base template file ${packer_template}"
+      exit 127
+    fi
+  fi
+  only=${3:-}
+  if [[ -n ${only} ]]; then
+    if [[ ! $only =~ ^(vmware|virtualbox|parallels)$ ]]; then
+      echo "$(basename $0): illegal platform $3"
+      echo "Valid platforms: vmware|virtualbox|parallels"
+      usage
+      exit 1
+    fi
+  fi
+  if [[ "${only}" = "vmware" ]]; then
+    only=vmware-iso
+  elif [[ "${only}" = "virtualbox" ]]; then
+    only=virtualbox-iso
+  elif [[ "${only}" = "parallels" ]]; then
+    only=parallels-iso
+  fi
+  if [ -n "${only}" ]; then
+    only="-only=${only}"      
+  fi
+}
+
+# main
+args "$@"
+
+version=$(cat VERSION)
+packer build ${only} -var-file=${var_file} -var "version=${version}" ${packer_template}
