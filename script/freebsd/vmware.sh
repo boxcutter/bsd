@@ -2,7 +2,7 @@
 
 HOME_DIR=${SSH_USER_HOME:-/home/${SSH_USERNAME}}
 
-if [ $PACKER_BUILDER_TYPE =~ vmware ]; then
+if [ "$PACKER_BUILDER_TYPE" = "vmware-iso" ]; then
     echo "==> Installing VMware Tools";
      # Install Perl and other software needed by vmware-install.pl
     pkg install -y perl5;

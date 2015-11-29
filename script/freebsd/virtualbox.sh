@@ -1,12 +1,12 @@
 #!/bin/sh -u
 
-freebsd_major="`uname -r | awk -F. '{print $1}'`";
+freebsd_major="`uname -r | awk -F. '{print $1}'`"
 
-if [ $PACKER_BUILDER_TYPE == virtualbox-iso ]; then
-    echo "==> Installing VirtualBox guest additions";
+if [ "$PACKER_BUILDER_TYPE" = "virtualbox-iso" ]; then
+    echo "==> Installing VirtualBox guest additions"
 
     # Disable X11 because vagrants are (usually) headless
-    echo 'WITHOUT_X11="YES"' >> /etc/make.conf;
+    echo 'WITHOUT_X11="YES"' >> /etc/make.conf
 
     pkg install -y virtualbox-ose-additions;
 
