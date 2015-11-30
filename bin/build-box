@@ -50,7 +50,7 @@ args() {
     only=parallels-iso
   fi
   if [ -n "${only}" ]; then
-    only="-only=${only}"      
+    only="-only=${only}"
   fi
 }
 
