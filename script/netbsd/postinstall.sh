@@ -12,8 +12,8 @@ echo 'ntpdate=YES' >> /etc/rc.conf
 
 echo "==> Install curl and sudo";
 # Install sudo and curl
-pkg_add -I curl;
-pkg_add -I sudo;
+pkg_add curl;
+pkg_add sudo;
 
 echo "==> Setup sudo";
 mkdir -p /usr/pkg/etc
@@ -26,6 +26,9 @@ root ALL=(ALL) ALL
 ## Allow members of group wheel to execute any command without a password
 %wheel ALL=(ALL) NOPASSWD: ALL
 SUDOERS
+
+echo "==> Configure OpenSSHD";
+sed -i -e 's/.*NoneEnabled.*/NoneEnabled yes/g' /etc/ssh/sshd_config
 
 echo "==> Enable NFS";
 # As sharedfolders are not in defaults ports tree, we will use NFS sharing
