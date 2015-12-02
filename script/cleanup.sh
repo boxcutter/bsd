@@ -1,6 +1,6 @@
 #!/bin/sh -u
 
-echo "==> Disk usage before minimization";
+echo "==> Disk usage before cleanup";
 df -h;
 
 # Purge files we don't need any longer
