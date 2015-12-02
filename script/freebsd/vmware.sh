@@ -15,7 +15,7 @@ if [ "$PACKER_BUILDER_TYPE" = "vmware-iso" ]; then
     mdconfig -a -t vnode -f $HOME_DIR/freebsd.iso -u 0;
     mount -t cd9660 /dev/md0 /tmp/vmfusion;
     tar xzf /tmp/vmfusion/vmware-freebsd-tools.tar.gz -C /tmp/vmfusion-archive;
-    /tmp/vmfusion-archive/vmware-tools-distrib/vmware-install.pl --force-install;
+    /tmp/vmfusion-archive/vmware-tools-distrib/vmware-install.pl --default;
     echo 'ifconfig_vxn0="dhcp"' >>/etc/rc.conf;
     umount /tmp/vmfusion;
     rm -rf /tmp/vmfusion;
