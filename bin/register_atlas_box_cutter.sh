@@ -29,7 +29,7 @@ args() {
         usage
         exit 1
     fi
-    
+
     BOX_NAME=$1
     BOX_SUFFIX=$2
     VERSION=$3
