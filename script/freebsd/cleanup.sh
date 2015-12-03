@@ -1,7 +1,7 @@
 #!/bin/sh -u
 
-echo "==> Disk usage before minimization";
-df -h;
+echo "==> Disk usage before cleanup";
+zfs list;
 
 # Purge files we don't need any longer
 echo "==> Removing FreeBSD update files";
@@ -17,4 +17,4 @@ echo "==> Removing core dumps";
 rm -f /*.core;
 
 echo "==> Disk usage after cleanup";
-df -h;
+zfs list;
