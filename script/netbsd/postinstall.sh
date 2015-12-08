@@ -27,9 +27,6 @@ root ALL=(ALL) ALL
 %wheel ALL=(ALL) NOPASSWD: ALL
 SUDOERS
 
-echo "==> Configure OpenSSHD";
-sed -i -e 's/.*NoneEnabled.*/NoneEnabled yes/g' /etc/ssh/sshd_config
-
 echo "==> Enable NFS";
 # As sharedfolders are not in defaults ports tree, we will use NFS sharing
 cat >>/etc/rc.conf << RC_CONF
