@@ -160,8 +160,7 @@
         "script/virtualbox.sh",
         "script/parallels.sh",
         "custom-script.sh",
-        "script/cleanup.sh",
-        "script/minimize.sh"
+        "script/cleanup.sh"
       ],
       "type": "shell"
     }
