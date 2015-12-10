@@ -9,7 +9,7 @@
         "/bin/sh<enter><wait>",
         "mount -t tmpfs /dev/wd0b /tmp<enter><wait>",
         "dhclient -lf /tmp/dhclient.lease.wm0 wm0<enter><wait5>",
-        "ftp -o /tmp/install.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/install.sh && /tmp/install.sh {{user `hostname`}} wd0 && reboot<enter>"
+        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/autoinst.sh && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} wd0 && reboot<enter>"
       ],
       "boot_wait": "6s",
       "disk_size": "{{ user `disk_size` }}",
@@ -52,7 +52,7 @@
         "/bin/sh<enter><wait>",
         "mount -t tmpfs /dev/wd0b /tmp<enter><wait>",
         "dhclient -lf /tmp/dhclient.lease.wm0 wm0<enter><wait5>",
-        "ftp -o /tmp/install.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/install.sh && /tmp/install.sh {{user `hostname`}} sd0 && reboot<enter>"
+        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/autoinst.sh && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} sd0 && reboot<enter>"
       ],
       "boot_wait": "6s",
       "disk_size": "{{ user `disk_size` }}",
@@ -86,7 +86,7 @@
         "/bin/sh<enter><wait>",
         "mount -t tmpfs /dev/wd0b /tmp<enter><wait>",
         "dhclient -lf /tmp/dhclient.lease.wm0 wm0<enter><wait5>",
-        "ftp -o /tmp/install.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/install.sh && /tmp/install.sh {{user `hostname`}} wd0 && reboot<enter>"
+        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/autoinst.sh && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} wd0 && reboot<enter>"
       ],
       "boot_wait": "6s",
       "disk_size": "{{ user `disk_size` }}",
@@ -180,7 +180,7 @@
     "memory": "512",
     "no_proxy": "{{env `no_proxy`}}",
     "parallels_guest_os_type": "freebsd",
-    "install_path": "netbsd70-install.sh",
+    "install_path": "netbsd70-autoinst.sh",
     "rsync_proxy": "{{env `rsync_proxy`}}",
     "hostname": "netbsd70",
     "ssh_fullname": "vagrant",
