@@ -12,8 +12,8 @@ echo 'ntpdate=YES' >> /etc/rc.conf
 
 echo "==> Install curl and sudo";
 # Install sudo and curl
-pkg_add -I curl;
-pkg_add -I sudo;
+pkg_add curl;
+pkg_add sudo;
 
 echo "==> Setup sudo";
 mkdir -p /usr/pkg/etc
