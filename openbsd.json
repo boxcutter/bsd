@@ -15,7 +15,7 @@
       "floppy_files": [
         "http/{{ user `preseed` }}"
       ],
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_mode": "disable",
       "guest_os_type": "{{ user `virtualbox_guest_os_type` }}",
       "hard_drive_interface": "sata",
       "headless": "{{ user `headless` }}",
