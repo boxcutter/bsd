@@ -21,7 +21,9 @@ There are currently base Packer templates for the supported BSD flavors:
 
 - freebsd.json
 - openbsd.json
-- netbsd.json 
+- netbsd.json
+
+NOTE: The NetBSD box times out on `vagrant up` waiting on SSH, but `vagrant ssh` works fine. This seems to be a vagrant issue, see [mitchellh/vagrant#6640](https://github.com/mitchellh/vagrant/issues/6640).
 
 We make use of JSON files containing user variables to build specific versions
 of BSD. You tell packer to use a specific user variable file via the
