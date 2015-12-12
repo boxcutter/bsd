@@ -12,7 +12,7 @@ usage() {
 }
 
 args() {
-  if [ $# -lt 2 ]; then
+  if [ $# -lt 1 ]; then
     usage
     exit 0
   fi
@@ -25,7 +25,12 @@ args() {
       exit 127
     fi
   fi
-  packer_template=${2:-freebsd.json}
+  packer_template=${2:-}
+  if [[ -z "${packer_template}" ]]; then
+    packer_template=${var_file%.*}
+    version=${packer_template##*[[:alpha:]]}
+    packer_template=${packer_template%$version}
+  fi
   if [ ! -f ${packer_template} ]; then
     packer_template="${packer_template}.json"
     if [ ! -f ${packer_template} ]; then
