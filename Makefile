@@ -1,18 +1,5 @@
-# Possible values for CM: (nocm | chef | chefdk | salt | puppet)
-CM ?= nocm
-# Possible values for CM_VERSION: (latest | x.y.z | x.y)
-CM_VERSION ?=
-ifndef CM_VERSION
-	ifneq ($(CM),nocm)
-		CM_VERSION = latest
-	endif
-endif
 BOX_VERSION ?= $(shell cat VERSION)
-ifeq ($(CM),nocm)
-	BOX_SUFFIX := -$(CM)-$(BOX_VERSION).box
-else
-	BOX_SUFFIX := -$(CM)$(CM_VERSION)-$(BOX_VERSION).box
-endif
+BOX_SUFFIX := -$(BOX_VERSION).box
 
 BUILDER_TYPES ?= vmware virtualbox parallels
 TEMPLATE_FILENAMES := $(filter-out freebsd.json netbsd.json openbsd.json,$(wildcard *.json))
@@ -87,7 +74,6 @@ assure_atlas_parallels:
 deliver:
 	@for box_name in $(BOX_NAMES) ; do \
 		echo Uploading $$box_name to Atlas ; \
-		bin/register_atlas_box_cutter.sh $$box_name $(BOX_SUFFIX) $(BOX_VERSION) ; \
 		bin/register_atlas.sh $$box_name $(BOX_SUFFIX) $(BOX_VERSION) ; \
 	done
 
