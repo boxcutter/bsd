@@ -8,7 +8,7 @@ BSD Vagrant boxes.
 ## Current Boxes
 
 * [FreeBSD 10.2 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/freebsd102)
-* [OpenBSD 10.2 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/openbsd58)
+* [OpenBSD 5.8 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/openbsd58)
 
 ## Building the Vagrant boxes with Packer
 
