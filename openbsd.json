@@ -190,7 +190,7 @@
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
     "update": "false",
-    "vagrantfile_template": "tpl/bsd.rb",
+    "vagrantfile_template": "tpl/openbsd.rb",
     "version": "0.1.0",
     "virtualbox_guest_os_type": "OpenBSD_64",
     "vm_name": "openbsd58",
