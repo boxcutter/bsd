@@ -1,3 +1,4 @@
 #!/bin/sh -u
 
-pkg_add -UuI
+. /home/${SSH_USERNAME}/.profile;
+pkg_add -UuI;
