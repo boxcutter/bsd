@@ -3,20 +3,23 @@
 major_version="`uname -r | awk -F. '{print $1}'`";
 minor_version="`uname -r | awk -F. '{print $2}'`";
 
+echo "==> Set hostname";
+echo "$HOSTNAME.localdomain" > /etc/myname;
+
 echo "==> Setup NTP";
 # Set the time correctly
-echo 'ntpd_flags=""' >> /etc/rc.conf.local
+echo 'ntpd_flags=""' >> /etc/rc.conf.local;
 
-echo "==> Install curl, ca_root_nss and sudo";
-# Install sudo, curl and ca_root_nss
+echo "==> Install curl";
+. /home/${SSH_USERNAME}/.profile;
 pkg_add -I curl;
-pkg_add -I ca_root_nss;
 
 # Use "doas" from 5.8
-if [ "$major_version" -le 5 && "$minor_version" -lt 8 ]; then
+if [ "$major_version" -le 5 -a "$minor_version" -lt 8 ]; then
+  echo "==> Install sudo";
   pkg_add -I sudo;
 else
-  echo 'alias sudo="echo \"Use doas instead of sudo!\""' > /home/${SSH_USERNAME}/.profile
+  echo 'alias sudo="echo \"Use doas instead of sudo!\""' >> /home/${SSH_USERNAME}/.profile;
 fi
 
 echo "==> Enable NFS";
