@@ -1,5 +1,5 @@
 {
-  "_comment": "Build with `packer build openbsd58.json`",
+  "_comment": "Build with `packer build openbsd.json -var-file openbsd58.json`",
   "builders": [
     {
       "boot_command": [
@@ -183,7 +183,7 @@
     "memory": "512",
     "no_proxy": "{{env `no_proxy`}}",
     "parallels_guest_os_type": "freebsd",
-    "install_path": "install.conf.openbsd58",
+    "install_path": "install.conf.openbsd5x",
     "rsync_proxy": "{{env `rsync_proxy`}}",
     "hostname": "vagrant",
     "ssh_fullname": "vagrant",

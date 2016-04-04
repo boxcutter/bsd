@@ -1,4 +1,4 @@
-System hostname = openbsd57
+System hostname = openbsd
 Password for root = vagrant
 Setup a user = vagrant
 Password for user = vagrant
