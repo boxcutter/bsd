@@ -18,7 +18,7 @@ export nonInteractive="YES"
 export ZFSBOOT_DISKS="$DISKSLICE"
 export ZFSBOOT_CONFIRM_LAYOUT=0
 
-HOSTNAME=freebsd102
+HOSTNAME=freebsd
 
 #!/bin/sh -x
 

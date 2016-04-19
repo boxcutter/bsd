@@ -5,9 +5,8 @@ echo "==> Setup NTP";
 ntpdate -v -b in.pool.ntp.org;
 
 echo "==> Install curl, ca_root_nss and sudo";
-# Install sudo, curl and ca_root_nss
+# Install sudo and curl
 pkg install -y curl;
-pkg install -y ca_root_nss;
 pkg install -y sudo;
 
 # Emulate the ETCSYMLINK behavior of ca_root_nss; this is for FreeBSD 10,
@@ -15,12 +14,13 @@ pkg install -y sudo;
 # SSL CAcerts anymore
 ln -sf /usr/local/share/certs/ca-root-nss.crt /etc/ssl/cert.pem;
 
-echo "==> Enable NFS";
+echo "==> Enable NFS and set hostname";
 # As sharedfolders are not in defaults ports tree, we will use NFS sharing
 cat >>/etc/rc.conf << RC_CONF
 rpcbind_enable="YES"
 nfs_server_enable="YES"
 mountd_flags="-r"
+hostname="$HOSTNAME"
 RC_CONF
 
 echo "==> Don't build for X11";
