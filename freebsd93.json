@@ -1,12 +1,7 @@
 {
   "_comment": "Build with `packer build -var-file=freebsd93.json freebsd.json`",
-  "cpus": "1",
-  "custom_script": ".",
-  "disk_size": "65536",
   "iso_checksum": "5a3c82653d77bba7d7ded8bd7efbedc09d52cf4045d98ce52a82c9e0f8fa9b0e",
-  "iso_checksum_type": "sha256",
   "iso_name": "FreeBSD-9.3-RELEASE-amd64-disc1.iso",
   "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/9.3/FreeBSD-9.3-RELEASE-amd64-disc1.iso",
-  "memory": "512",
   "vm_name": "freebsd93"
 }
