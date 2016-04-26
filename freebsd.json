@@ -185,7 +185,7 @@
     "iso_checksum": "",
     "iso_checksum_type": "sha256",
     "iso_name": "",
-    "iso_path": "/Volumes/Thunder/software/freebsd",
+    "iso_path": "/Volumes/Storage/software/freebsd",
     "iso_url": "",
     "memory": "512",
     "no_proxy": "{{env `no_proxy`}}",
