@@ -1,7 +1,7 @@
 #!/bin/sh -u
 
 echo "==> Zero out the free space to save space in the final image";
-COMPRESSION=`zfs get -H compression zroot | cut -f3`;
+COMPRESSION=$(zfs get -H compression zroot | cut -f3);
 
 zfs set compression=off zroot;
 dd if=/dev/zero of=/EMPTY bs=1m || echo "dd exit code $? is suppressed";

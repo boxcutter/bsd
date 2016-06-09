@@ -22,7 +22,7 @@ HOSTNAME=freebsd
 
 #!/bin/sh -x
 
-ifdev=`ifconfig | grep '^[a-z]' | cut -d: -f1 | head -n 1`
+ifdev=$(ifconfig | grep '^[a-z]' | cut -d: -f1 | head -n 1)
 # Enable required services
 cat >> /etc/rc.conf << EOT
 ifconfig_${ifdev}="dhcp"
