@@ -8,6 +8,7 @@
   "iso_name": "NetBSD-7.0.1-amd64.iso",
   "iso_url": "http://ftp.fi.netbsd.org/pub/NetBSD/NetBSD-7.0.1/iso/NetBSD-7.0.1-amd64.iso",
   "netbsd_mirror": "http://ftp.NetBSD.org/pub/pkgsrc/packages/NetBSD",
-  "memory": "512",
+  "hostname": "netbsd70",
+  "install_path": "netbsd70-autoinst.sh",
   "vm_name": "netbsd70"
 }
