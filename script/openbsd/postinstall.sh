@@ -1,7 +1,7 @@
 #!/bin/sh -u
 
-major_version="`uname -r | awk -F. '{print $1}'`";
-minor_version="`uname -r | awk -F. '{print $2}'`";
+major_version="$(uname -r | awk -F. '{print $1}')";
+minor_version="$(uname -r | awk -F. '{print $2}')";
 
 echo "==> Set hostname";
 echo "$HOSTNAME.localdomain" > /etc/myname;

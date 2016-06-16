@@ -6,7 +6,7 @@ if [ "$PACKER_BUILDER_TYPE" = "vmware-iso" ]; then
     echo "==> Installing VMware Tools";
      # Install Perl and other software needed by vmware-install.pl
     pkg install -y perl5;
-    pkg install -y compat6x-`uname -m`;
+    pkg install -y compat6x-$(uname -m);
     # the install script is very picky about location of perl command
     ln -s /usr/local/bin/perl /usr/bin/perl;
 
