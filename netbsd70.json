@@ -3,11 +3,12 @@
   "cpus": "1",
   "custom_script": ".",
   "disk_size": "65536",
-  "iso_checksum": "8e8468bcca2bf6cf82576529f266f0ff24b632bd625c19764ee846714adcd65a",
+  "iso_checksum": "0d5929f8626ad07475bc8ed229c56fc73a2a01efd41f30c2695719989bc00fec",
   "iso_checksum_type": "sha256",
-  "iso_name": "NetBSD-7.0-amd64.iso",
-  "iso_url": "http://ftp.fi.netbsd.org/pub/NetBSD/NetBSD-7.0/iso/NetBSD-7.0-amd64.iso",
+  "iso_name": "NetBSD-7.0.1-amd64.iso",
+  "iso_url": "http://ftp.fi.netbsd.org/pub/NetBSD/NetBSD-7.0.1/iso/NetBSD-7.0.1-amd64.iso",
   "netbsd_mirror": "http://ftp.NetBSD.org/pub/pkgsrc/packages/NetBSD",
-  "memory": "512",
+  "hostname": "netbsd70",
+  "install_path": "netbsd70-autoinst.sh",
   "vm_name": "netbsd70"
 }
