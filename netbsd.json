@@ -8,8 +8,13 @@
         "<wait10><wait5>",
         "/bin/sh<enter><wait>",
         "mount -t tmpfs /dev/wd0b /tmp<enter><wait>",
+        "mkdir /tmp/etc /tmp/var<enter>",
+        "echo '' > /tmp/etc/resolv.conf<enter>",
+        "mount -t union /tmp/etc /etc<enter>",
+        "mount -t union /tmp/var /var<enter>",
         "dhclient -lf /tmp/dhclient.lease.wm0 wm0<enter><wait5>",
-        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/autoinst.sh && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} wd0 && reboot<enter>"
+        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/autoinst.sh",
+        " && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} wd0 && reboot<enter>"
       ],
       "boot_wait": "6s",
       "disk_size": "{{ user `disk_size` }}",
@@ -28,7 +33,7 @@
         "{{ user `iso_url` }}"
       ],
       "output_directory": "output-{{ user `vm_name` }}-virtualbox-iso",
-      "shutdown_command": "su root -c '/sbin/shutdown -p now'",
+      "shutdown_command": "sudo /sbin/shutdown -p now",
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
@@ -51,8 +56,13 @@
         "<wait10><wait5>",
         "/bin/sh<enter><wait>",
         "mount -t tmpfs /dev/wd0b /tmp<enter><wait>",
+        "mkdir /tmp/etc /tmp/var<enter>",
+        "echo '' > /tmp/etc/resolv.conf<enter>",
+        "mount -t union /tmp/etc /etc<enter>",
+        "mount -t union /tmp/var /var<enter>",
         "dhclient -lf /tmp/dhclient.lease.wm0 wm0<enter><wait5>",
-        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/autoinst.sh && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} sd0 && reboot<enter>"
+        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}}",
+        " && chmod a+x /tmp/autoinst.sh && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} sd0 && reboot<enter>"
       ],
       "boot_wait": "6s",
       "disk_size": "{{ user `disk_size` }}",
@@ -66,7 +76,7 @@
         "{{ user `iso_url` }}"
       ],
       "output_directory": "output-{{ user `vm_name` }}-vmware-iso",
-      "shutdown_command": "su root -c '/sbin/shutdown -p now'",
+      "shutdown_command": "sudo /sbin/shutdown -p now",
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
@@ -85,8 +95,13 @@
         "<wait10><wait5>",
         "/bin/sh<enter><wait>",
         "mount -t tmpfs /dev/wd0b /tmp<enter><wait>",
+        "mkdir /tmp/etc /tmp/var<enter>",
+        "echo '' > /tmp/etc/resolv.conf<enter>",
+        "mount -t union /tmp/etc /etc<enter>",
+        "mount -t union /tmp/var /var<enter>",
         "dhclient -lf /tmp/dhclient.lease.wm0 wm0<enter><wait5>",
-        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/autoinst.sh && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} wd0 && reboot<enter>"
+        "ftp -o /tmp/autoinst.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{user `install_path`}} && chmod a+x /tmp/autoinst.sh",
+        " && /tmp/autoinst.sh -s 2048 -h {{user `hostname`}} wd0 && reboot<enter>"
       ],
       "boot_wait": "6s",
       "disk_size": "{{ user `disk_size` }}",
@@ -118,7 +133,7 @@
         ]
       ],
       "prlctl_version_file": ".prlctl_version",
-      "shutdown_command": "su root -c '/sbin/shutdown -p now'",
+      "shutdown_command": "sudo /sbin/shutdown -p now",
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
@@ -147,7 +162,7 @@
         "rsync_proxy={{user `rsync_proxy`}}",
         "no_proxy={{user `no_proxy`}}"
       ],
-      "execute_command": "{{.Vars}} su root -eux {{.Path}}",
+      "execute_command": "{{.Vars}} sudo -E sh -eux '{{.Path}}'",
       "scripts": [
         "script/netbsd/setup_pkg.sh",
         "script/netbsd/postinstall.sh",
@@ -183,7 +198,7 @@
     "install_path": "",
     "rsync_proxy": "{{env `rsync_proxy`}}",
     "hostname": "",
-    "ssh_fullname": "vagrant",
+    "ssh_fullname": "Vagrant",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
     "vagrantfile_template": "tpl/bsd.rb",
