@@ -30,7 +30,7 @@
         "{{ user `iso_url` }}"
       ],
       "output_directory": "output-{{ user `vm_name` }}-virtualbox-iso",
-      "shutdown_command": "su -m root -c 'shutdown -p now'",
+      "shutdown_command": "echo '{{ user `ssh_password` }}' | su -m root -c 'shutdown -p now'",
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
@@ -70,7 +70,7 @@
         "{{ user `iso_url` }}"
       ],
       "output_directory": "output-{{ user `vm_name` }}-vmware-iso",
-      "shutdown_command": "su -m root -c 'shutdown -p now'",
+      "shutdown_command": "echo '{{ user `ssh_password` }}' | su -m root -c 'shutdown -p now'",
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
@@ -124,7 +124,7 @@
         ]
       ],
       "prlctl_version_file": ".prlctl_version",
-      "shutdown_command": "su -m root -c 'shutdown -p now'",
+      "shutdown_command": "echo '{{ user `ssh_password` }}' | su -m root -c 'shutdown -p now'",
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
@@ -157,7 +157,7 @@
         "rsync_proxy={{user `rsync_proxy`}}",
         "no_proxy={{user `no_proxy`}}"
       ],
-      "execute_command": "{{.Vars}} su -m root -c 'sh -eux {{.Path}}'",
+      "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} su -m root -c 'sh -eux {{.Path}}'",
       "scripts": [
         "script/freebsd/update.sh",
         "script/freebsd/postinstall.sh",

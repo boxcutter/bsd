@@ -43,7 +43,7 @@ touch /etc/fstab
 
 # Set up user accounts
 echo "vagrant" | pw -V /etc useradd vagrant -h 0 -s /bin/sh -G wheel -d /home/vagrant -c "Vagrant User"
-echo "vagrant" | pw -V /etc usermod root
+echo "vagrant" | pw -V /etc usermod root -h 0
 
 mkdir -p /home/vagrant
 chown 1001:1001 /home/vagrant
