@@ -5,9 +5,6 @@ freebsd_major="$(uname -r | awk -F. '{print $1}')"
 if [ "$PACKER_BUILDER_TYPE" = "virtualbox-iso" ]; then
     echo "==> Installing VirtualBox guest additions"
 
-    # Disable X11 because vagrants are (usually) headless
-    echo 'WITHOUT_X11="YES"' >> /etc/make.conf
-
     pkg install -y virtualbox-ose-additions;
 
     echo 'vboxdrv_load="YES"' >>/boot/loader.conf;
@@ -29,5 +26,5 @@ if [ "$PACKER_BUILDER_TYPE" = "virtualbox-iso" ]; then
     echo 'ifconfig_vtnet3_name="em3"' >>/etc/rc.conf;
 
     pw groupadd vboxusers;
-    pw groupmod vboxusers -m vagrant;
+    pw groupmod vboxusers -m $SSH_USERNAME;
 fi
