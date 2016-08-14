@@ -13,11 +13,12 @@ usage="usage: ${0##*/} [-s swap-size-mb] [-S swap-size-blocks] [-r root-password
 # You may want to run `gpt destroy ${SD}', otherwise this script won't work properly
 
 SWAPSIZE=
-PASSWD=
+# password = 'vagrant'  -- generated with "pwhash vagrant"
+PASSWD='$sha1$24018$4wyM9IFq$.N8uIzAmdygZmSu65mTdVLAcc9UP'
 SERIAL=pc
 SERIALSPEED=0
 HOSTNAME=netbsd
-PKGSRC=
+PKGSRC=http://ftp.netbsd.org/pub/pkgsrc
 IFDEV=wm0
 while getopts "c:C:h:pr:s:S:i:" opt; do
     case $opt in
@@ -70,12 +71,10 @@ SWAPSTART=$((${ROOTSTART} + ${ROOTSIZE})) # aligned due to ROOTSTART and ROOTSIZ
 # SWAPSIZE is defined already
 
 echo "Generating partition labels"
-# Generate partition labels:
 ROOT_LABEL="root-$(dd if=/dev/urandom cbs=1 conv=unblock | grep -a '[:alnum:]' | (x=; for i in 1 2 3 4 5 6; do read ch; x="$x$ch"; done; echo "$x"))"
 SWAP_LABEL="swap-$(dd if=/dev/urandom cbs=1 conv=unblock | grep -a '[:alnum:]' | (x=; for i in 1 2 3 4 5 6; do read ch; x="$x$ch"; done; echo "$x"))"
 
 echo "Create partitions"
-# Create partitions:
 gpt add -i 1 -t  ffs -l "${ROOT_LABEL}" -b ${ROOTSTART} -s ${ROOTSIZE} ${SD}
 gpt add -i 2 -t swap -l "${SWAP_LABEL}" -b ${SWAPSTART} -s ${SWAPSIZE} ${SD}
 dkctl ${SD} makewedges
@@ -84,13 +83,11 @@ ROOT="$(dkctl ${SD} listwedges | grep "${ROOT_LABEL}" | sed 's!^\([^:]*\):.*!\1!
 SWAP="$(dkctl ${SD} listwedges | grep "${SWAP_LABEL}" | sed 's!^\([^:]*\):.*!\1!')"
 
 echo "Make it bootable"
-# Make it bootable
 gpt biosboot -i 1 ${SD}
 
 mnt=${TMPDIR}/${_progname}.$$
 
 echo "Now create filesystems"
-# Now create filesystems, and unpack sets
 newfs -O2 ${ROOT}
 mkdir ${mnt}
 mount /dev/${ROOT} ${mnt}
@@ -104,21 +101,17 @@ done
 cd ${mnt}
 
 echo "Make it bootable"
-# Make it bootable:
 cp usr/mdec/boot .
 installboot -vf -o timeout=2 -o console=${SERIAL} -o speed=${SERIALSPEED} /dev/r${ROOT} /usr/mdec/bootxx_ffsv2
 # ...only make sure that this boot code corresponds to file system in newfs above.
 
 echo "Populate /dev"
-# Populate /dev
 (cd dev && sh MAKEDEV all)
 
 echo "Create additional mount points (kern, proc)"
-# Additional mount points:
 mkdir proc kern
 
 echo "Generate fstab"
-# Generate fstab
 cat > etc/fstab <<EOF
 NAME=${ROOT_LABEL} / ffs rw,log 1 1
 NAME=${SWAP_LABEL} none swap sw 0 0
@@ -129,7 +122,6 @@ tmpfs /tmp tmpfs rw
 EOF
 
 echo "Generate rc.conf"
-# Generate rc.conf
 cat > etc/rc.conf <<EOF
 if [ -r /etc/defaults/rc.conf ]; then
     . /etc/defaults/rc.conf
@@ -142,24 +134,37 @@ dhcpcd=YES
 ifconfig_${IFDEV}="dhcp"
 EOF
 
+echo "Enable name resolution"
+cp /etc/resolv.conf etc/
+
 echo "Setting root password"
-sed -i "s!^root::!root:${PASSWD}:!" ${mnt}/etc/master.passwd
+chroot ${mnt} usermod -p "$PASSWD" root;
 
-# pkgsrc
-if [ ! "x${PKGSRC}" = "x" ]; then
-    echo "Installing pkgsrc..."
-    ftp -o- ftp://ftp.netbsd.org/pub/pkgsrc/stable/pkgsrc.tar.gz | tar -zxpf- -C ${mnt}/usr
-fi
+echo "Installing pkgsrc..."
+ftp -o- ${PKGSRC}/stable/pkgsrc.tar.gz | tar -zxpf- -C ${mnt}/usr
 
-# Set up vagrant user account, pw: vagrant
-chroot ${mnt} useradd -p '$sha1$22526$CHHJ53UQ$oSPxmOJn0jKxlMWFea8p6KlTpHj/' -s /bin/sh -G wheel -b /home -m -c "Vagrant User" vagrant;
+echo "Set up vagrant user account, pw: vagrant"
+chroot ${mnt} useradd -p "$PASSWD" -s /bin/sh -G wheel -b /home -m -c "Vagrant User" vagrant;
 chown 1000:100 ${mnt}/home/vagrant;
 
+# Install and setup passwordless sudo for vagrant
+export PKG_PATH=${PKGSRC}/packages/NetBSD/$(${mnt}/usr/bin/uname -m)/$(${mnt}/usr/bin/uname -r)/All
+chroot ${mnt} pkg_add sudo;
+
+mkdir -p ${mnt}/usr/pkg/etc;
+cat >>${mnt}/usr/pkg/etc/sudoers << SUDOERS
+##
+## User privilege specification
+##
+root ALL=(ALL) ALL
+
+## Allow members of group wheel to execute any command without a password
+%wheel ALL=(ALL) NOPASSWD: ALL
+SUDOERS
+
 echo "Finalization"
-# Wrap up:
 sync
 cd / # don't hold file system
 umount ${mnt}
-rmdir ${mnt}
 
 echo "Done!"
