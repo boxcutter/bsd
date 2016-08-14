@@ -2,7 +2,7 @@ BOX_VERSION ?= $(shell cat VERSION)
 BOX_SUFFIX := -$(BOX_VERSION).box
 
 BUILDER_TYPES ?= vmware virtualbox parallels
-TEMPLATE_FILENAMES := $(filter-out freebsd.json netbsd.json openbsd.json,$(wildcard *.json))
+TEMPLATE_FILENAMES := $(filter-out freebsd.json netbsd.json openbsd.json dragonflybsd.json,$(wildcard *.json))
 BOX_NAMES := $(basename $(TEMPLATE_FILENAMES))
 BOX_FILENAMES := $(TEMPLATE_FILENAMES:.json=$(BOX_SUFFIX))
 VMWARE_BOX_DIR ?= box/vmware
