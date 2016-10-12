@@ -1,7 +1,7 @@
 {
   "_comment": "Build with `packer build -var-file=freebsd110.json freebsd.json`",
-  "iso_checksum": "ba006b3ed7e0a875156977e25c19fc389c3fc3f42df62e6129f7a097d1011cdd",
-  "iso_name": "FreeBSD-11.0-BETA3-amd64-disc1.iso",
-  "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/11.0/FreeBSD-11.0-BETA3-amd64-disc1.iso",
+  "iso_checksum": "08b12f2dc378f7a61b5469219824c74a2f9faef580acc85ffab45365df79872d",
+  "iso_name": "FreeBSD-11.0-RELEASE-amd64-disc1.iso",
+  "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/11.0/FreeBSD-11.0-RELEASE-amd64-disc1.iso",
   "vm_name": "freebsd110"
 }
