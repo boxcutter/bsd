@@ -5,3 +5,5 @@
 #
 # For example:
 # pkg install -y vim-lite
+
+pkg install -y python27
