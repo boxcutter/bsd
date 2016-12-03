@@ -19,8 +19,8 @@ fi
 
 # Update FreeBSD
 # NOTE: this will fail if there aren't any patches available for the release yet
-env PAGER=/bin/cat $freebsd_update fetch;
-env PAGER=/bin/cat $freebsd_update install;
+env PAGER=/bin/cat $freebsd_update fetch || true;
+env PAGER=/bin/cat $freebsd_update install || true;
 
 # Always use pkgng - pkg_add is EOL as of 1 September 2014
 echo "==> Bootstrap pkg";
