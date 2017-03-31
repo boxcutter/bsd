@@ -107,9 +107,6 @@
         ],
         [
           "set", "{{.Name}}", "--device-del", "fdd0"
-        ],
-        [
-          "set", "{{.Name}}", "--device-del", "parallel0"
         ]
       ],
       "prlctl_version_file": ".prlctl_version",
