@@ -7,9 +7,12 @@ BSD Vagrant boxes.
 
 ## Current Boxes
 
-* [FreeBSD 10.2 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/freebsd102)
-* [OpenBSD 5.8 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/openbsd58)
+* [FreeBSD 10.3 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/freebsd103)
+* [FreeBSD 11.0 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/freebsd110)
 * [OpenBSD 5.9 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/openbsd59)
+* [OpenBSD 6.0 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/openbsd60)
+* [NetBSD 7.0.1 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/netbsd70)
+* [DragonFlyBSD 4.6 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/dragonflybsd46)
 
 ## Building the Vagrant boxes with Packer
 
@@ -26,6 +29,7 @@ There are currently base Packer templates for the supported BSD flavors:
 - freebsd.json
 - openbsd.json
 - netbsd.json
+- dragonflybsd.json
 
 NOTE: The NetBSD box times out on `vagrant up` waiting on SSH, but `vagrant ssh` works fine. This seems to be a vagrant issue, see [mitchellh/vagrant#6640](https://github.com/mitchellh/vagrant/issues/6640).
 

@@ -1,7 +1,0 @@
-{
-  "_comment": "Build with `packer build -var-file=freebsd102.json freebsd.json`",
-  "iso_checksum": "97908f5cd00d86cafeb2c265bfabbd0aa79f87e9b6b31ecdb756bc96a4a62e93",
-  "iso_name": "FreeBSD-10.2-RELEASE-amd64-disc1.iso",
-  "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.2/FreeBSD-10.2-RELEASE-amd64-disc1.iso",
-  "vm_name": "freebsd102"
-}
