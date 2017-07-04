@@ -1,8 +1,0 @@
-{
-  "_comment": "Build with `packer build -var-file=dragonflybsd46.json dragonflybsd.json`",
-  "iso_checksum": "cf37277e74562c7c9bf93ae7136cb360f28df7e4e2a8ef3d067c8182776557d3",
-  "iso_name": "dfly-x86_64-4.6.1_REL.iso",
-  "iso_url": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-4.6.1_REL.iso",
-  "hostname": "dfly46",
-  "vm_name": "dfly46"
-}
