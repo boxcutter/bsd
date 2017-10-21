@@ -7,12 +7,7 @@ BSD Vagrant boxes.
 
 ## Current Boxes
 
-* [FreeBSD 10.3 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/freebsd103)
-* [FreeBSD 11.0 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/freebsd110)
-* [OpenBSD 5.9 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/openbsd59)
-* [OpenBSD 6.0 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/openbsd60)
-* [NetBSD 7.0.1 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/netbsd70)
-* [DragonFlyBSD 4.6 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/dragonflybsd46)
+We no longer provide pre-built binaries for these templates.
 
 ## Building the Vagrant boxes with Packer
 
@@ -135,11 +130,11 @@ Contact moujan@annawake.com
 
 ### Acknowledgments
 
-[Parallels](http://www.parallels.com/) provides a Business Edition license of
+[Parallels](http://www.parallels.com/) provided a Business Edition license of
 their software to run on the basebox build farm.
 
 <img src="http://www.parallels.com/fileadmin/images/corporate/brand-assets/images/logo-knockout-on-red.jpg" width="80">
 
-[SmartyStreets](http://www.smartystreets.com) is providing basebox hosting for the box-cutter project.
+[SmartyStreets](http://www.smartystreets.com) provided basebox hosting for the box-cutter project since 2015 - thank you for your support!.
 
 <img src="https://d79i1fxsrar4t.cloudfront.net/images/brand/smartystreets.65887aa3.png" width="320">
