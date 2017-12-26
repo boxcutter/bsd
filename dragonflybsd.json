@@ -7,7 +7,7 @@
         "<wait10><wait10><wait10>",
         "root<enter>dhclient em0<enter><wait>",
         "fetch -o /tmp/install.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `install_path` }}",
-        " && sh /tmp/install.sh da0 {{ user `hostname`}} vagrant",
+        " && sh /tmp/install.sh ad0 {{ user `hostname`}} vagrant",
         " {{ user `ssh_password` }} \"{{ user `ssh_fullname` }}\"<enter>"
       ],
       "boot_wait": "6s",
@@ -49,7 +49,7 @@
         "<wait10><wait10><wait10>",
         "root<enter>dhclient em0<enter><wait>",
         "fetch -o /tmp/install.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `install_path` }}",
-        " && sh /tmp/install.sh da0 {{ user `hostname`}} vagrant",
+        " && sh /tmp/install.sh ad0 {{ user `hostname`}} vagrant",
         " {{ user `ssh_password` }} \"{{ user `ssh_fullname` }}\"<enter>"
       ],
       "boot_wait": "6s",
