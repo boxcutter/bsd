@@ -1,0 +1,7 @@
+{
+  "_comment": "Build with `packer build openbsd63.json`",
+  "iso_checksum": "dbeae81c53dc7d0aacd47cb55a40d4fb68c23aea64e33fa04e63cac32c1b7795",
+  "iso_name": "install63.iso",
+  "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/6.3/amd64/install63.iso",
+  "vm_name": "openbsd63"
+}

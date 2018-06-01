@@ -1,7 +1,0 @@
-{
-  "_comment": "Build with `packer build openbsd61.json`",
-  "iso_checksum": "dfb4bf2408d993645ef9560e6913be48ca6e854322c42156954d4da93d450fd9",
-  "iso_name": "install61.iso",
-  "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/6.1/amd64/install61.iso",
-  "vm_name": "openbsd61"
-}
