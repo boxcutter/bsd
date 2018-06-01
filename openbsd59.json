@@ -1,7 +1,0 @@
-{
-  "_comment": "Build with `packer build openbsd59.json`",
-  "iso_checksum": "685262fc665425c61a2952b2820389a2d331ac5558217080e6d564d2ce88eecb",
-  "iso_name": "install59.iso",
-  "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/5.9/amd64/install59.iso",
-  "vm_name": "openbsd59"
-}

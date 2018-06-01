@@ -184,7 +184,7 @@
     "memory": "512",
     "no_proxy": "{{env `no_proxy`}}",
     "parallels_guest_os_type": "freebsd",
-    "install_path": "install.conf.openbsd5x",
+    "install_path": "install.conf.openbsd6x",
     "rsync_proxy": "{{env `rsync_proxy`}}",
     "ssh_fullname": "vagrant",
     "ssh_password": "vagrant",
