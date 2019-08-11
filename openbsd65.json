@@ -1,0 +1,7 @@
+{
+  "_comment": "Build with `packer build -var-file openbsd65.json openbsd.json`",
+  "iso_checksum": "38d1f8cadd502f1c27bf05c5abde6cc505dd28f3f34f8a941048ff9a54f9f608",
+  "iso_name": "install65.iso",
+  "iso_url": "https://mirrors.gigenet.com/pub/OpenBSD/6.5/amd64/install65.iso",
+  "vm_name": "openbsd65"
+}
