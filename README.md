@@ -2,7 +2,7 @@
 
 ### Overview
 
-This repository contains [Packer](https://packer.io/) templates for creating
+This repository contains [Packer](https://packer.io/) templates in JSON for creating
 BSD Vagrant boxes.
 
 ## Current Boxes
