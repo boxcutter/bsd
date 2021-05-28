@@ -1,8 +1,8 @@
-# Packer templates for various BSD flavors
+# Packer templates for various BSD flavors written in legacy JSON
 
 ### Overview
 
-This repository contains [Packer](https://packer.io/) templates in JSON for creating
+This repository contains [Packer](https://packer.io/) templates in legacy JSON for creating
 BSD Vagrant boxes.
 
 ## Current Boxes
