@@ -1,6 +1,6 @@
 {
   "_comment": "Build with `packer build netbsd71.json`",
-  "iso_checksum": "2a0cbc16202d565c0fabc08d2f70b21db886467671d215fa30f13d0c87371843",
+  "iso_checksum": "sha256:2a0cbc16202d565c0fabc08d2f70b21db886467671d215fa30f13d0c87371843",
   "iso_name": "NetBSD-7.1.2-amd64.iso",
   "iso_url": "http://ftp.fi.netbsd.org/pub/NetBSD/NetBSD-7.1.2/iso/NetBSD-7.1.2-amd64.iso",
   "netbsd_mirror": "http://ftp.NetBSD.org/pub/pkgsrc/packages/NetBSD",

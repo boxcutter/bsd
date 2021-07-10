@@ -1,0 +1,7 @@
+{
+  "_comment": "Build with `packer build -var-file=freebsd130.json freebsd.json`",
+  "iso_checksum": "sha256:f78d4e5f53605592863852b39fa31a12f15893dc48cacecd875f2da72fa67ae5",
+  "iso_name": "FreeBSD-13.0-RELEASE-amd64-disc1.iso",
+  "iso_url": "https://download.freebsd.org/ftp/releases/amd64/amd64/ISO-IMAGES/13.0/FreeBSD-13.0-RELEASE-amd64-disc1.iso",
+  "vm_name": "freebsd130"
+}

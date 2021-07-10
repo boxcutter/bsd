@@ -1,0 +1,7 @@
+{
+  "_comment": "Build with `packer build -var-file=freebsd114.json freebsd.json`",
+  "iso_checksum": "sha256:d76c1ded99b2c1005b1ff94cc0c811fbcd8a2d04196432009ab5f203c2146914",
+  "iso_name": "FreeBSD-11.4-RELEASE-amd64-disc1.iso",
+  "iso_url": "https://download.freebsd.org/ftp/releases/amd64/amd64/ISO-IMAGES/11.4/FreeBSD-11.4-RELEASE-amd64-disc1.iso",
+  "vm_name": "freebsd114"
+}
