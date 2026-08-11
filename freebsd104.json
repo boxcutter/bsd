@@ -1,6 +1,6 @@
 {
   "_comment": "Build with `packer build -var-file=freebsd104.json freebsd.json`",
-  "iso_checksum": "7ac73b2a899024e1d9e71e55b5c9b9ac13938468206c72c5a1cf23c7e0a715b4",
+  "iso_checksum": "sha256:7ac73b2a899024e1d9e71e55b5c9b9ac13938468206c72c5a1cf23c7e0a715b4",
   "iso_name": "FreeBSD-10.4-RELEASE-amd64-disc1.iso",
   "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.4/FreeBSD-10.4-RELEASE-amd64-disc1.iso",
   "vm_name": "freebsd104"
